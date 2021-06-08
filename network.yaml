@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mme
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: mme-pod
+  template:
+    metadata:
+      name: mme
+      labels:
+        name: mme-pod
+    spec:
+      containers:
+      - name: mme
+        image: kczaplin/atsi-pr3:1.0
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upf
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: upf-pod
+  template:
+    metadata:
+      name: upf
+      labels:
+        name: upf-pod
+    spec:
+      containers:
+      - name: upf
+        image: nginx
+        ports:
+        - containerPort: 80

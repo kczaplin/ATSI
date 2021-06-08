@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mme
+  labels:
+    name: mme-pod
+spec:
+  containers:
+  - name: atsi-mme
+    image: kczaplin/atsi-pr3:1.0
+    ports:
+    - containerPort: 80
